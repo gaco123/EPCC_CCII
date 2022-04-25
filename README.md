@@ -1,5 +1,5 @@
 # EPCC_CCII
-Repositorio para el Curso de Ciencias de Computación II
-Universidad: Universidad Nacional de San Agustín
-Alumno: Gabriel Fernando Rodriguez Cutimbo
-Semestres: 2022-A
+Repositorio para el Curso de Ciencias de Computación II\n
+Universidad: Universidad Nacional de San Agustín\n
+Alumno: Gabriel Fernando Rodriguez Cutimbo\n
+Semestre: 2022-A
