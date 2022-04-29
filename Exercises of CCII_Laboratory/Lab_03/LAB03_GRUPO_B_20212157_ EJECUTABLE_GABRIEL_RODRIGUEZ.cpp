@@ -85,8 +85,8 @@ void actual_Age(string bird, string now){
 	
 	//Edad Actual
 	int yz=0;
-	int mz=0;
-	int dz=0;
+	int mz=1;
+	int dz=1;
 	
 	//Separación Nacimiento
 	temp=bird.substr(0, 4);
@@ -105,119 +105,121 @@ void actual_Age(string bird, string now){
 	dy=stoi(temp);
 	
 	//Calculo de Edad Actual en años, meses y días
-	while(yy!=yx&&my!=mx&&dy!=dx){
+	while((yx<yy)||(mx<my)||(dx<dy)){
 		dx++;
 		if(mx==1&&dx==32){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==2&&dx==30){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==2&&dx==29){
-			if(yx%4==0){
-				break;
-			}
 			mx++;
-			dx=0;
+			dx=1;
+			if(yx%4==0){
+				mx--;
+				dx=29;
+			}
 		}
 		if(mx==3&&dx==32){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==4&&dx==31){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==5&&dx==32){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==6&&dx==31){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==7&&dx==32){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==8&&dx==32){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==9&&dx==31){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==10&&dx==32){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==11&&dx==31){
 			mx++;
-			dx=0;
+			dx=1;
 		}
 		if(mx==12&&dx==32){
-			mx++;
-			dx=0;
+			mx=1;
+			dx=1;
 			yx++;
 		}
 		dz++;
 		if(mz==1&&dz==32){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==2&&dz==30){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==2&&dz==29){
-			if(yx%4==0){
-				break;
-			}
 			mz++;
-			dz=0;
+			dz=1;
+			if(yz%4==0){
+				mz--;
+				dz=29;
+			}
 		}
 		if(mz==3&&dz==32){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==4&&dz==31){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==5&&dz==32){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==6&&dz==31){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==7&&dz==32){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==8&&dz==32){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==9&&dz==31){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==10&&dz==32){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==11&&dz==31){
 			mz++;
-			dz=0;
+			dz=1;
 		}
 		if(mz==12&&dz==32){
-			mz++;
-			dz=0;
+			mz=1;
+			dz=1;
 			yz++;
 		}
 	}
@@ -233,7 +235,7 @@ void actual_Age(string bird, string now){
 	actual+=temp;
 	
 	//Edad actual
-	cout<<"Su edad actual sería: "<<actual;
+	cout<<"Su edad actual sería (formato Y-M-D): "<<actual;
 	
 }
 
@@ -248,7 +250,7 @@ int main(){
 	cout<<"PROGRAMA PARA CALCULAR SU EDAD ACTUAL A PARTIR DE SU FECHA DE NACIMIENTO Y LA FECHA ACTUAL"<<endl;
 	cout<<"Ingrese la fecha de su nacimiento (formato YYYY-MM-DD): ";
 	getline(cin,bird);
-	cout<<"Ingrese la fecha actual: ";
+	cout<<"Ingrese la fecha actual (formato YYYY-MM-DD): ";
 	getline(cin,now);
 	actual_Age(bird,now);
 	
@@ -333,4 +335,46 @@ a. Introducir un valor x entero comprendido entre 0 y 100
 b. Validar que sea un valor par.
 c. Sumar todos los números impares desde el 0 hasta el valor de x.
 */
+/*
+#include <iostream>
+using namespace std;
 
+//Validar que sea un número par (condición c.)
+bool num_Pair(int x){
+	if(x%2==0){
+		return false;
+	}
+	return true;
+}
+int val_X(int x){
+	do{
+		cout<<"Ingrese el valor del número x: ";
+		cin>>x;
+		if(x<0||x>100||num_Pair(x)){
+			cout<<"Error intentar de nuevo"<<endl;
+		}
+	} while(x<0||x>100||num_Pair(x));
+	
+	return x;
+}
+void sum_Odd(int x){
+	int sum=0;
+	for(int i=0; i<=x; i++){
+		if(i%2!=0){
+			sum+=i;
+		}
+	}
+	cout<<"La suma de los números impares entre 0 y "<<x<<" es: "<<sum;
+}
+	
+int main(){
+	//Memoria
+	int x;
+	//Función para validar la (condición a.)
+	x=val_X(x);
+	//Suma de impares desde 0 hasta x (condición b.)
+	sum_Odd(x);
+	
+	return 0;
+}
+*/
