@@ -13,7 +13,6 @@ using namespace std;
 
 int main() {
 	//Memory
-	
 	map<string, int> counts{};
 	string word{};
 	
