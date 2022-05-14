@@ -26,13 +26,12 @@ int main(){
 		m1[i] = new int [n];
 	}
 	
-	//Lector de datos de la matriz m1
+	//Genera los numeros de la tabla para la matriz m1
 	for(int i=0; i<n; i++){
 		for(int j=0; j<n; j++){
 			m1[i][j]=(i+1)*(j+1);
 		}
 	}
-	cout<<endl;
 	
 	//Mostrar la interfaz horizontal superior
 	cout<<"Tabla de multiplicación del 1 hasta el "<<n<<endl;

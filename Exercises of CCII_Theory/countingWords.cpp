@@ -1,4 +1,3 @@
-
 /*
 Exercise 4. countingWords.cpp
 
@@ -37,4 +36,3 @@ int main() {
 	
 	return 0;
 }
-

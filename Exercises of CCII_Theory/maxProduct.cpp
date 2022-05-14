@@ -48,14 +48,26 @@ int main(){
 	cout<<endl;
 	
 	//Máximo producto
-	maxp=vectorx.at(0)*vectorx.at(1);
+	int mpa=vectorx.at(0);
+	int mpb=vectorx.at(1);
+	int temp;
 	for(int i=0; i<n; i++){
-		for(int j=0; j<n; j++){
-			if(i!=j&&maxp<vectorx.at(i)*vectorx.at(j)){
-				maxp=vectorx.at(i)*vectorx.at(j);
+		if(vectorx.at(i)>mpa){
+			temp=mpa;
+			mpa=vectorx.at(i);
+		}
+		if(i<n-1&&vectorx.at(i+1)>mpb){
+			mpb=vectorx.at(i+1);
+		}
+		if(mpa==mpb){
+			mpa=vectorx.at(i);
+			if(mpa==mpb){
+				mpa=temp;
 			}
 		}
 	}
+
+	maxp = mpa*mpb;
 	cout<<"El máximo producto de la anterior secuencia es: "<<maxp;
 	
 	return 0;
