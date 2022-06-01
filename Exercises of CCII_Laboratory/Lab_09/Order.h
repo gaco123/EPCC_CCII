@@ -1,31 +1,50 @@
 #ifndef ORDER_H
 #define ORDER_H
-#include <iostream>
-using namespace std;
 
-template <class O, class OT, class P, class U>
+template <class O, class P, class U>
 class Order{
 public:
 	Order(O,P,U);
 	void Ascend(){
-		OT temp = arrayx[prim];
+		auto temp = arrayx[prim];
 		int pos = prim;
+		int prit = prim;
+		int ultt = ult;
 		
-		for(int i=prim; i<=ult; i++){
+		for(int i=prit; i<=ultt; i++){
 			if(temp<arrayx[i]){
 				temp=arrayx[i];
 				pos=i;
 			}
-			if(i==ult&&prim!=ult){
-				arrayx[pos]=arrayx[prim];
-				arrayx[prim]=temp;
-				++prim;
-				i=prim;
+			if(i==ultt&&prit!=ultt){
+				arrayx[pos] = arrayx[prit];
+				arrayx[prit] = temp;
+				prit=prit+1;
+				i=prit;
+				temp=arrayx[prit];
+				pos=prit;
 			}
-			for(int i=0; i<5; i++){
-				cout<<arrayx[i]<<" ";
+		}
+	};
+	void Descend(){
+		auto temp = arrayx[prim];
+		int pos = prim;
+		int prit = prim;
+		int ultt = ult;
+		
+		for(int i=prit; i<=ultt; i++){
+			if(temp>arrayx[i]){
+				temp=arrayx[i];
+				pos=i;
 			}
-			cout<<endl;
+			if(i==ultt&&prit!=ultt){
+				arrayx[pos] = arrayx[prit];
+				arrayx[prit] = temp;
+				prit=prit+1;
+				i=prit;
+				temp=arrayx[prit];
+				pos=prit;
+			}
 		}
 	};
 private:
@@ -34,8 +53,8 @@ private:
 	U ult;
 };
 
-template <class O, class OT, class P, class U>
-Order<O,OT,P,U>::Order(O arrayx, P prim, U ult){
+template <class O, class P, class U>
+Order<O,P,U>::Order(O arrayx, P prim, U ult){
 	this->arrayx = arrayx;
 	this->prim = prim;
 	this->ult = ult;

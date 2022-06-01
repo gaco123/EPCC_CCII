@@ -147,7 +147,7 @@ dado, y dos enteros que indican los índices del primero y último elemento.
 	int ArrayEntero [5] = {5,7,2,8,6,1,3,4,9};
 	float ArrayFloat [5] = {10.1, 8.4, 3.6, 4.4, 11.2};
 */
-/*
+
 #include <iostream>
 #include <clocale>//Cáracteres Español
 #include "Order.h"
@@ -157,21 +157,45 @@ int main (){
 	
 	setlocale(LC_CTYPE, "Spanish");//Cáracteres Español
 	
-	int a[]={10,7,2,8,6};
-	cout<<"a antes \n";
-	for(int i=0; i<5; i++){
-		cout<<a[i]<<" ";
-	}
-	cout<<"\n a despues \n";
-	Order<int*,int,int,int> b(a,0,5); 
-	b.Ascend();
-	for(int i=0; i<5; i++){
-		cout<<a[i]<<" ";
+	const int n1 = 9;
+	int a[n1]={5,7,2,8,6,1,3,4,9};
+	cout<<"Array A \n";
+	for(int i=0; i<n1; i++){
+		cout<<a[i]<<", ";
 	}
 	
-	float c[]={12.1, 8.7, 5.6, 8.4, 1.2};
-	Order<float*,float,int,int> d(c,0,5); 
+	Order<int*,int,int> a1(a,0,8); 
+	cout<<"\nArray A: Ordenado Ascendentemente\n";
+	a1.Ascend();
+	for(int i=0; i<n1; i++){
+		cout<<a[i]<<", ";
+	}
+	cout<<"\nArray A: Ordenado Descendentemente\n";
+	a1.Descend();
+	for(int i=0; i<n1; i++){
+		cout<<a[i]<<", ";
+	}
+	cout<<endl<<endl;
+	
+	const int n2 = 5;
+	float b[n2]={12.1, 8.7, 5.6, 8.4, 1.2};
+	cout<<"Array B \n";
+	for(int i=0; i<n2; i++){
+		cout<<b[i]<<", ";
+	}
+	
+	Order<float*,int,int> b1(b,0,4); 
+	cout<<"\nArray B: Ordenado Ascendentemente\n";
+	b1.Ascend();
+	for(int i=0; i<n2; i++){
+		cout<<b[i]<<", ";
+	}
+	cout<<"\nArray B: Ordenado Descendentemente\n";
+	b1.Descend();
+	for(int i=0; i<n2; i++){
+		cout<<b[i]<<", ";
+	}
 	
 	return 0;
 }
-*/
+
